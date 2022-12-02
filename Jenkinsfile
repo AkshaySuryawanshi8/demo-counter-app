@@ -32,6 +32,16 @@ pipeline{
                 sh 'mvn clean install'
             }
         }
+        stage('Docker image Build'){
+            steps{
+                script{
+                    sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID'
+                    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID akshaysuryawanshi873/$JOB_NAME:v1.$BUILD_ID'
+                    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID akshaysuryawanshi873/$JOB_NAME:latest'
+                    
+                }
+            }
+        }
         
 }
 }
