@@ -35,7 +35,7 @@ pipeline{
         stage('Deploy jar file to Tomcat Server'){
             steps{
                 sshagent(['Tomcat_Deploy_user']) {
-                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/app/target/Uber.jar ec2-user@52.66.88.54:/opt/digital/tomcat/webapp'
+                    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/app/target/Uber.jar ec2-user@52.66.88.54:/opt/digital/tomcat/webapps'
                     
 }
                 }
